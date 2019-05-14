@@ -6,7 +6,7 @@ class Master extends CI_Controller {
 		parent::__construct();
 	}
 	protected function cekadmin(){
-		if(($this->session->userdata('user_login')!=true) || ($this->session->userdata('level')>=5)){
+		if(($this->session->userdata('user_login')!=true) || ($this->session->userdata('user_level')>=5)){
 			redirect(site_url('Login/logout'));
 		}	
 	}

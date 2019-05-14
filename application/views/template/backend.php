@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="<?= base_url();?>vendor/css/atlantis.min.css">
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="<?= base_url();?>vendor/css/demo.css">
+
 	<!--   Core JS Files   -->
 	<script src="<?= base_url();?>vendor/js/core/jquery.3.2.1.min.js"></script>
 	<script src="<?= base_url();?>vendor/js/core/popper.min.js"></script>
@@ -47,7 +48,7 @@
 	<script src="<?= base_url();?>vendor/js/plugin/chart-circle/circles.min.js"></script>
 
 	<!-- Datatables -->
-	<script src="<?= base_url();?>vendor/js/plugin/datatables/datatables.min.js"></script>
+	<script src="<?= base_url();?>vendor/js/plugin/datatables_old/datatables.min.js"></script>
 
 	<!-- Bootstrap Notify -->
 	<script src="<?= base_url();?>vendor/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
@@ -97,6 +98,8 @@
 
 	<!-- Atlantis JS -->
 	<script src="<?= base_url();?>vendor/js/atlantis.min.js"></script>
+
+
 </head>
 <style type="text/css">
 	.spacer{
@@ -303,17 +306,17 @@
 							<div class="collapse" id="dashboard">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="index-2.html">
-											<span class="sub-item">Dashboard 1</span>
+										<a href="<?= site_url('dashboard/admin')?>">
+											<span class="sub-item">Catatan</span>
 										</a>
 									</li>
 								</ul>
 							</div>
 						</li>						
 						<li class="nav-item">
-							<a href="javascript:void()">
-								<i class="fas fa-file-signature"></i>
-								<p>Projects</p>
+							<a href="<?= base_url('Login/logout')?>">
+								<i class="icon icon-logout"></i>
+								<p>Log Out</p>
 							</a>
 						</li>							
 					</ul>
@@ -326,130 +329,48 @@
 			<!--KONTEN TULIS DISINI-->
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Tables</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="#">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="#">Tables</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="#">Basic Tables</a>
-							</li>
-						</ul>
+						<h4 class="page-title"><?= ucwords($global->headline)?></h4>
 					</div>
 					<!--EXTENDED-->
 					<div class="row">
-						<div class="col-sm-2">
-							<button type="button" name="add" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal"> 
-								<span class="btn-label">
-									<i class="fa fa-plus"></i>
-								</span> Add</button>
-							<div class="spacer" ></div>
-						</div>
-
-					</div>
-					<div class="row">
 						<div class="col-sm-12">
-							<div class="card">
-								<div class="card-header card-primary">
-									<div class="card-title ">Basic Table</div>
-								</div>
-								<div class="card-body">
-									<table class="table mt-3">
-										<thead>
-											<tr>
-												<th scope="col">#</th>
-												<th scope="col">First</th>
-												<th scope="col">Last</th>
-												<th scope="col">Handle</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Mark</td>
-												<td>Otto</td>
-												<td>@mdo</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Jacob</td>
-												<td>Thornton</td>
-												<td>@fat</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td colspan="2">Larry the Bird</td>
-												<td>@twitter</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>						
-						</div>
-					</div>
-					<div class="modal fade" id="modal">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header bg-primary">
-					      	<h4 class="modal-title pull-left">Tambah Poli</h4>
-					      </div>
-					      <form id="formadd" method="POST" action="#" enctype="multipart/form-data">
-					      <div class="modal-body">
-							<div class="form-group">
-								<label>Id</label>
-								<input type="text" name="id" placeholder="Auto Generated" readonly class="form-control">
+							<?php if($this->session->flashdata('success')):?>
+								<script type="text/javascript">
+									$.notify({
+										icon: 'fa fa-bell',
+										title: '<strong>Informasi</strong>',
+										message: '<?= ucwords($this->session->flashdata('success'))?>',
+										
+									},{
+										type: 'success',
+										
+									});
+								</script>       
+								<?php elseif($this->session->flashdata('error')):?>
+									<script type="text/javascript">
+										$.notify({
+											icon: 'fa fa-bell',
+											title: '<strong>Perhatian </strong>',
+											message: '<?= ucwords($this->session->flashdata('error'))?>'
+										},{
+											type: 'danger'
+										});
+									</script>            
+								<?php endif;?>  
 							</div>
-							<div class="form-group">
-								<label>Nama Jam</label>
-								<input required type="text" name="jampraktek_nama" class="form-control">
-								<p class="help-block">Misal Shift Pagi</p>
-							</div>
-
-							<div class="form-group">
-								<label>Jam Mulai</label>
-								<input type="text" name="jampraktek_mulai" class="timepicker form-control">
-							</div>
-							<div class="form-group">
-								<label>Selesai Praktek</label>
-								<input type="text" name="jampraktek_selesai" class="timepicker form-control">
-							</div>
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
-					        <button type="submit" value="submit" name="submit" class="btn btn-primary">Simpan</button>
-					      </div>
-					      </form>	
-					    </div>
-					    <!-- /.modal-content -->
-					  </div>
-					  <!-- /.modal-dialog -->
-					</div>					
+						</div>					
+					<?php
+					if(file_exists(APPPATH.$global->view)){
+						include(APPPATH.$global->view);
+					}else{
+						echo "halaman view tidak ditemukan";
+					}
+					?>										
 					<!--END EXTENDED-->					
 				</div>			
 			</div>
 			<footer class="footer">
-				<div class="container-fluid">
-					<nav class="pull-left">
-						<ul class="nav">
-							<li class="nav-item">
-								<a class="nav-link" href="javascript:void()">
-									<span class="icon icon-envelope"></span> haryanto.duwi@gmail.com
-								</a>
-							</li>
-
-						</ul>
-					</nav>					
+				<div class="container-fluid">				
 					<div class="copyright ml-auto">
 						<?= date('Y')?>, made with <i class="fa fa-heart heart text-danger"></i> by haryanto.duwi
 					</div>				
@@ -925,7 +846,8 @@
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
 	<script src="<?= base_url();?>vendor/js/setting-demo.js"></script>
 	<!--
-	<script src="<?= base_url();?>vendor/js/demo.js"></script>
+	<script src="<?= base_url();?>vendor/js/demo.js"></script>	
 	-->
+	
 </body>
 </html>
