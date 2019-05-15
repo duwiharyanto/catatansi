@@ -1,13 +1,5 @@
 <div id="view">
-	<div class="row">
-		<div class="col-sm-2">
-			<button id="add" type="button" name="add" class="btn btn-primary btn-block" url="<?= base_url($global->url.'add')?>" onclick="add()"> 
-				<span class="btn-label">
-					<i class="fa fa-plus"></i>
-				</span> Add</button>
-				<div class="spacer" ></div>
-			</div>
-		</div>
+
 	<div class="row">
 		<div class="col-sm-12">
 			<div id="tabel" url="<?= base_url($global->url.'tabel')?>">

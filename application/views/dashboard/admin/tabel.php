@@ -1,6 +1,12 @@
 <div class="card">
-	<div class="card-header card-primary">
-		<div class="card-title "><?= ucwords($global->headline)?></div>
+	<div class="card-header ">
+		<div class="card-title "><?= ucwords($global->headline)?>
+		<div class="pull-right">
+			<button id="add"  type="button" class="btn btn-icon btn-round btn-primary"  url="<?= base_url($global->url.'add')?>" onclick="add()">
+				<i class="fa fa-plus"></i>
+			</button>
+		</div>	
+		</div>
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">

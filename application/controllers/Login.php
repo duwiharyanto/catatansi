@@ -23,7 +23,7 @@ class Login extends Master {
 			'headline'=>$data['headline'],
 			'url'=>$data['url'],
 			'ikon'=>"fa fa-tasks",
-			'view'=>"views/dashboard/admin/index.php",
+			'view'=>"views/tempalte/login",
 			'detail'=>false,
 			'edit'=>false,
 			'delete'=>false,
@@ -75,12 +75,11 @@ class Login extends Master {
 			$data=array(
 				'global'=>$global,
 			);
-			// if($this->session->userdata('user_login')==true AND $this->session->userdata('user_level')<=5 ){
-			// 	redirect(site_url('dashboard/admin'));
-			// }else{
-			// 	$this->load->view($this->view,$data);
-			// }						
-			$this->load->view($this->view,$data);
+			if($this->session->userdata('user_login')==true AND $this->session->userdata('user_level')<=5 ){
+				redirect(site_url('dashboard/admin'));
+			}else{
+				$this->load->view($this->view,$data);
+			}						
 			//print_r($data['data']);
 		}
 	}

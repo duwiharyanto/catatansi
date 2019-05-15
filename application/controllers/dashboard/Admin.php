@@ -65,7 +65,7 @@ class Admin extends Master {
 	public function tabel(){
 		$global_set=array(
 			'submenu'=>false,
-			'headline'=>'data tersimpan',
+			'headline'=>'catatan',
 			'url'=>'dashboard/admin/',
 		);
 		$global=$this->global_set($global_set);		
