@@ -30,7 +30,8 @@
 				swal.close();
 			}
 		});		
-		return false    		
+		return false 
+		//alert(url+id);   		
 	}	
   function detail(id){   
     var url=$('.detail').attr('url');

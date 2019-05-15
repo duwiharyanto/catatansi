@@ -9,11 +9,11 @@ class Admin extends Master {
 		$this->cekadmin();
 	}
 	//VARIABEL
-	private $master_tabel="catatan";
-	private $default_url="dashboard/Admin/";
-	private $default_view="dashboard/Admin/";
+	private $master_tabel="ipaddress";
+	private $default_url="ipaddress/Admin/";
+	private $default_view="ipaddress/Admin/";
 	private $view="template/backend";
-	private $id="catatan_id";
+	private $id="ipaddress_id";
 
 	private function global_set($data){
 		$data=array(
@@ -22,7 +22,7 @@ class Admin extends Master {
 			'headline'=>$data['headline'],
 			'url'=>$data['url'],
 			'ikon'=>"fa fa-tasks",
-			'view'=>"views/dashboard/admin/index.php",
+			'view'=>"views/ipaddress/admin/index.php",
 			'detail'=>false,
 			'edit'=>false,
 			'delete'=>false,
@@ -33,21 +33,21 @@ class Admin extends Master {
 	{
 		$global_set=array(
 			'submenu'=>false,
-			'headline'=>'daftar catatan',
-			'url'=>'dashboard/admin/',
+			'headline'=>'daftar ipaddress',
+			'url'=>'ipaddress/admin/',
 		);
 		$global=$this->global_set($global_set);
 		if($this->input->post('submit')){
 			//PROSES SIMPAN
 			$data=array(
-				'catatan_judul'=>$this->input->post('catatan_judul'),
-				'catatan_tersimpan'=>date('Y-m-d'),
-				'catatan_isi'=>$this->input->post('catatan_isi'),
+				'ipaddress_alias'=>$this->input->post('ipaddress_alias'),
+				'ipaddress_tersimpan'=>date('Y-m-d'),
+				'ipaddress_ip'=>$this->input->post('ipaddress_ip'),
+				'ipaddress_catatan'=>$this->input->post('ipaddress_catatan'),
 			);
 			$query=array(
 				'data'=>$data,
 				'tabel'=>$this->master_tabel,
-				
 			);
 			$insert=$this->Crud->insert($query);
 			$this->notifiaksi($insert);
@@ -65,14 +65,14 @@ class Admin extends Master {
 	public function tabel(){
 		$global_set=array(
 			'submenu'=>false,
-			'headline'=>'catatan',
-			'url'=>'dashboard/admin/',
+			'headline'=>'IP address',
+			'url'=>'ipaddress/admin/',
 		);
 		$global=$this->global_set($global_set);		
 		//PROSES TAMPIL DATA
 		$query=array(
 			'tabel'=>$this->master_tabel,
-			'order'=>array('kolom'=>'catatan_judul','orderby'=>'DESC'),
+			'order'=>array('kolom'=>'ipaddress_alias','orderby'=>'DESC'),
 			);
 		$data=array(
 			'global'=>$global,
@@ -85,7 +85,7 @@ class Admin extends Master {
 		$global_set=array(
 			'submenu'=>false,
 			'headline'=>'tambah data',
-			'url'=>'dashboard/admin/', //AKAN DIREDIRECT KE INDEX
+			'url'=>'ipaddress/admin/', //AKAN DIREDIRECT KE INDEX
 		);
 		$user=array(
 			'tabel'=>"user",
@@ -103,14 +103,15 @@ class Admin extends Master {
 		$global_set=array(
 			'submenu'=>false,
 			'headline'=>'edit data',
-			'url'=>'crud/admin/edit',
+			'url'=>'ipaddress/admin/',
 		);
 		$global=$this->global_set($global_set);
 		$id=$this->input->post('id');
 		$data=array(
-			'catatan_judul'=>$this->input->post('catatan_judul'),
-			'catatan_terupdate'=>date('Y-m-d'),
-			'catatan_isi'=>$this->input->post('catatan_isi'),
+			'ipaddress_alias'=>$this->input->post('ipaddress_alias'),
+			'ipaddress_terupdate'=>date('Y-m-d'),
+			'ipaddress_ip'=>$this->input->post('ipaddress_ip'),
+			'ipaddress_catatan'=>$this->input->post('ipaddress_catatan'),
 		);			
 		$query=array(
 			'data'=>$data,
@@ -124,14 +125,14 @@ class Admin extends Master {
 	public function detail(){
 		$global_set=array(
 			'submenu'=>false,
-			'headline'=>'detail catatan',
-			'url'=>'dashboard/admin/',
+			'headline'=>'detail ipaddress',
+			'url'=>'ipaddress/admin/',
 		);
 		$global=$this->global_set($global_set);		
 		$id=$this->input->post('id');
 		$query=array(
 			'tabel'=>$this->master_tabel,
-			'where'=>array(array('catatan_id'=>$id)),
+			'where'=>array(array('ipaddress_id'=>$id)),
 		);
 		$data=array(
 			'data'=>$this->Crud->read($query)->row(),

@@ -19,6 +19,7 @@
 	</script>
 
 	<!-- CSS Files -->
+
 	<link rel="stylesheet" href="<?= base_url();?>vendor/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?= base_url();?>vendor/css/atlantis.min.css">
 	<!-- CSS Just for demo purpose, don't include it in your project -->
@@ -95,7 +96,10 @@
 
 	<!-- Magnific Popup -->
 	<script src="<?= base_url();?>vendor/js/plugin/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
-
+	
+	<!-- List.js -->
+	<script src="<?= base_url();?>vendor/js/plugin/list.js/list.min.js"></script>
+	
 	<!-- Atlantis JS -->
 	<script src="<?= base_url();?>vendor/js/atlantis.min.js"></script>
 
@@ -105,6 +109,29 @@
 	.spacer{
 		height: 10px;
 	}
+	.hide {
+	  display: none !important;
+	}
+	@media (max-width: 767px) {
+	  .hidden-xs {
+	    display: none !important;
+	  }
+	}
+	@media (min-width: 768px) and (max-width: 991px) {
+	  .hidden-sm {
+	    display: none !important;
+	  }
+	}
+	@media (min-width: 992px) and (max-width: 1199px) {
+	  .hidden-md {
+	    display: none !important;
+	  }
+	}
+	@media (min-width: 1200px) {
+	  .hidden-lg {
+	    display: none !important;
+	  }
+	}		
 </style>
 <body>
 	<div class="wrapper">
@@ -215,16 +242,16 @@
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
-									<img src="<?= base_url();?>vendor/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+									<img src="<?= base_url();?>vendor/img/<?= $this->session->user_icon;?>" alt="..." class="avatar-img rounded-circle">
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
 								<div class="dropdown-user-scroll scrollbar-outer">
 									<li>
 										<div class="user-box">
-											<div class="avatar-lg"><img src="<?= base_url();?>vendor/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="<?= base_url();?>vendor/img/<?= $this->session->user_icon;?>" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4>ArrayMotion</h4>
+												<h4><?= ucwords($this->session->user_nama);?></h4>
 												<p class="text-muted">hello@example.com</p><a href="javascript:void()" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
 											</div>
 										</div>
@@ -256,12 +283,12 @@
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<img src="<?= base_url();?>vendor/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+							<img src="<?= base_url();?>vendor/img/<?= $this->session->user_icon;?>" alt="..." class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									ArrayMotion
+									<?= ucwords($this->session->user_nama);?>
 									<span class="user-level">Administrator</span>
 									<span class="caret"></span>
 								</span>
@@ -310,6 +337,11 @@
 											<span class="sub-item">Catatan</span>
 										</a>
 									</li>
+									<li>
+										<a href="<?= site_url('ipaddress/admin')?>">
+											<span class="sub-item">IP Address</span>
+										</a>
+									</li>									
 								</ul>
 							</div>
 						</li>						

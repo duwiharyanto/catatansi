@@ -57,6 +57,7 @@ class Login extends Master {
 					'user_username'=>$user->user_username,
 					'user_nama'=>$user->user_nama,
 					'user_level'=>$user->user_level,
+					'user_icon'=>$user->user_icon,
 					'user_login'=>true,
 				);
 				$this->session->set_userdata($dt_session);				

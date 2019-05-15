@@ -14,7 +14,7 @@
 				<thead>
 					<tr>
 						<th width="5%">No</th>
-						<th width="80%">Catatan</th>
+						<th width="80%">Alias</th>
 						<th width="15%" class="text-center">Aksi</th>
 					</tr>
 				</thead>
@@ -23,8 +23,8 @@
 						<tr>
 							<td><?=$i?></td>
 							<td>
-								<b><a href="javascript:void()" onclick="detail(<?=$row->catatan_id?>)" url="<?=base_url($global->url.'detail')?>" class="detail"><?= ucwords($row->catatan_judul)?></a></b><br>
-								<small>Tersimpan : <?= date('d-m-Y',strtotime($row->catatan_tersimpan))?></small>
+								<b><a href="javascript:void()" onclick="detail(<?=$row->ipaddress_id?>)" url="<?=base_url($global->url.'detail')?>" class="detail"><?= ucwords($row->ipaddress_alias)?></a></b><br>
+								<small>Tersimpan : <?= date('d-m-Y',strtotime($row->ipaddress_tersimpan))?></small>
 							</td>
 							<td class="text-center"> 
 								<?php include 'button.php';?>
@@ -55,11 +55,10 @@
 					<li class="list-group-item d-flex justify-content-between align-items-center">
 						<span class="name">
 						<span>
-							<b><a href="javascript:void()" onclick="detail(<?=$row->catatan_id?>)" url="<?=base_url($global->url.'detail')?>" class="detail"><?= ucwords($row->catatan_judul)?></a></b><br>
-							<small>Tersimpan : <?= date('d-m-Y',strtotime($row->catatan_tersimpan))?></small>
+						<a  href="javascript:void()" onclick="detail(<?=$row->ipaddress_id?>)" url="<?=base_url($global->url.'detail')?>" class="detail"><?= ucwords($row->ipaddress_alias)?></a><br><small>Tersimpan : <?= date('d-m-Y',strtotime($row->ipaddress_tersimpan))?></small>	
 						</span>
 						</span>
-						<button url="<?= base_url($global->url.'hapus/')?>"  onclick="hapus(<?=$row->catatan_id?>)" type="button" class="hapus btn btn-md btn-icon btn-round btn-danger">
+						<button url="<?= base_url($global->url.'hapus/')?>"  onclick="hapus(<?=$row->ipaddress_id?>)" type="button" class="hapus btn btn-md btn-icon btn-round btn-danger">
 							<i class="icon icon-trash"></i>
 						</button>
 					</li>					
