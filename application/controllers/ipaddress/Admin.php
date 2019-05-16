@@ -11,7 +11,7 @@ class Admin extends Master {
 	//VARIABEL
 	private $master_tabel="ipaddress";
 	private $default_url="ipaddress/Admin/";
-	private $default_view="ipaddress/Admin/";
+	private $default_view="ipaddress/admin/";
 	private $view="template/backend";
 	private $id="ipaddress_id";
 

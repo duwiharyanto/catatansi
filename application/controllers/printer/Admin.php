@@ -11,7 +11,7 @@ class Admin extends Master {
 	//VARIABEL
 	private $master_tabel="printer";
 	private $default_url="printer/Admin/";
-	private $default_view="printer/Admin/";
+	private $default_view="printer/admin/";
 	private $view="template/backend";
 	private $id="printer_id";
 

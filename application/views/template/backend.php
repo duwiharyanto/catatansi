@@ -156,7 +156,7 @@
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
 				
-				<a href="index-2.html" class="logo">
+				<a href="javascript:void()" class="logo">
 					<!--
 					<img src="http://themekita.com/demo-atlantis-bootstrap/livepreview/examples/assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
 					-->
@@ -260,6 +260,7 @@
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
 									<img src="<?= base_url();?>vendor/img/<?= $this->session->user_icon;?>" alt="..." class="avatar-img rounded-circle">
+
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">

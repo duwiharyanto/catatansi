@@ -11,7 +11,7 @@ class Admin extends Master {
 	//VARIABEL
 	private $master_tabel="catatan";
 	private $default_url="dashboard/Admin/";
-	private $default_view="dashboard/Admin/";
+	private $default_view="dashboard/admin/";
 	private $view="template/backend";
 	private $id="catatan_id";
 
