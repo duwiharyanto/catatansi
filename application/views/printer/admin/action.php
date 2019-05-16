@@ -5,9 +5,12 @@
 			page:10,
 			pagination:true,
 		};
-		var nameList = new List('name-list', options);		
+		var nameList = new List('name-list', options);			
 		$('.basic-datatables').DataTable({
 		});
+		$('.datepicker').datetimepicker({
+        format: "DD-MM-YYYY",
+    });
 	})
 	function add(){
 		var url=$("#add").attr('url');   
@@ -36,7 +39,8 @@
 				swal.close();
 			}
 		});		
-		return false    		
+		return false 
+		//alert(url+id);   		
 	}	
   function detail(id){   
     var url=$('.detail').attr('url');

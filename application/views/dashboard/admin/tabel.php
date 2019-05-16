@@ -38,7 +38,8 @@
 </div>
 <div class="card hidden-md hidden-lg hidden-sm">
 	<div class="card-header ">
-		<div class="card-title "><?= ucwords($global->headline)?>
+		<div class="card-title "><?= ucwords($global->headline)?><br>
+		<small><?= ucwords($subheadline)?></small>
 		<div class="pull-right">
 			<button id="add"  type="button" class="btn btn-icon btn-round btn-primary"  url="<?= base_url($global->url.'add')?>" onclick="add()">
 				<i class="fa fa-plus"></i>
@@ -65,6 +66,7 @@
 					</li>					
 					<?php endforeach;?>
 				</ul>
+				<ul class="pagination"></ul>
 			</div>
 		</div>
 	</div>

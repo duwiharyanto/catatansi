@@ -47,7 +47,8 @@
 
 	<!-- Chart Circle -->
 	<script src="<?= base_url();?>vendor/js/plugin/chart-circle/circles.min.js"></script>
-
+	<!-- DateTimePicker -->
+	<script src="<?= base_url();?>vendor/js/plugin/datepicker/bootstrap-datetimepicker.min.js"></script>
 	<!-- Datatables -->
 	<script src="<?= base_url();?>vendor/js/plugin/datatables_old/datatables.min.js"></script>
 
@@ -70,8 +71,7 @@
 	<!-- Fullcalendar -->
 	<script src="<?= base_url();?>vendor/js/plugin/fullcalendar/fullcalendar.min.js"></script>
 
-	<!-- DateTimePicker -->
-	<script src="<?= base_url();?>vendor/js/plugin/datepicker/bootstrap-datetimepicker.min.js"></script>
+
 
 	<!-- Bootstrap Tagsinput -->
 	<script src="<?= base_url();?>vendor/js/plugin/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
@@ -131,7 +131,24 @@
 	  .hidden-lg {
 	    display: none !important;
 	  }
-	}		
+	}	
+	.pagination li {
+	  margin-top: 10px;
+	  display:inline-block;
+	  padding:4px;
+	}
+	.pagination li a {
+	
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border: 0px solid #ddd;
+	background-color:#1572e8;
+	  
+	}	
+	.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span, .pagination > li > a, .pagination > li > span{
+		color: white;
+	}	
 </style>
 <body>
 	<div class="wrapper">
@@ -341,7 +358,12 @@
 										<a href="<?= site_url('ipaddress/admin')?>">
 											<span class="sub-item">IP Address</span>
 										</a>
-									</li>									
+									</li>
+									<li>
+										<a href="<?= site_url('printer/admin')?>">
+											<span class="sub-item">Printer</span>
+										</a>
+									</li>																		
 								</ul>
 							</div>
 						</li>						

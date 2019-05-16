@@ -22,34 +22,10 @@
 	<link rel="stylesheet" href="<?= base_url();?>vendor/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?= base_url();?>vendor/css/atlantis.min.css">
 
-	<!-- Bootstrap Notify -->
-	<script src="<?= base_url();?>vendor/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>	
 </head>
 <body class="login">
 	<div class="wrapper wrapper-login">
-		<?php if($this->session->flashdata('success')):?>
-			<script type="text/javascript">
-				$.notify({
-					icon: 'fa fa-bell',
-					title: '<strong>Informasi</strong>',
-					message: '<?= ucwords($this->session->flashdata('success'))?>',
-					
-				},{
-					type: 'success',
-					
-				});
-			</script>       
-			<?php elseif($this->session->flashdata('error')):?>
-				<script type="text/javascript">
-					$.notify({
-						icon: 'fa fa-bell',
-						title: '<strong>Perhatian </strong>',
-						message: '<?= ucwords($this->session->flashdata('error'))?>'
-					},{
-						type: 'danger'
-					});
-				</script>            
-			<?php endif;?> 		
+	
 		<div class="container container-login animated fadeIn">
 			<h1 class="text-center"><span class="icon icon-lock" style="font-size: 56px"></span></h1>
 			<h3 class="text-center"><?= ucwords($global->headline)?></h3>
@@ -82,7 +58,32 @@
 	<script src="<?= base_url();?>vendor/js/core/jquery.3.2.1.min.js"></script>
 	<script src="<?= base_url();?>vendor/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	<script src="<?= base_url();?>vendor/js/core/popper.min.js"></script>
+	<!-- Bootstrap Notify -->
+	<script src="<?= base_url();?>vendor/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>	
 	<script src="<?= base_url();?>vendor/js/core/bootstrap.min.js"></script>
 	<script src="<?= base_url();?>vendor/js/atlantis.min.js"></script>
 </body>
 </html>
+<?php if($this->session->flashdata('success')):?>
+	<script type="text/javascript">
+		$.notify({
+			icon: 'fa fa-bell',
+			title: '<strong>Informasi</strong>',
+			message: '<?= ucwords($this->session->flashdata('success'))?>',
+			
+		},{
+			type: 'success',
+			
+		});
+	</script>       
+	<?php elseif($this->session->flashdata('error')):?>
+		<script type="text/javascript">
+			$.notify({
+				icon: 'fa fa-bell',
+				title: '<strong>Perhatian </strong>',
+				message: '<?= ucwords($this->session->flashdata('error'))?>'
+			},{
+				type: 'danger'
+			});
+		</script>            
+<?php endif;?> 	
