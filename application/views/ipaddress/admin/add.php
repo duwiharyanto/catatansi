@@ -17,7 +17,7 @@
 					<div class="form-group">
 						<label>Catatan</label>
 						<textarea required rows="8" class="form-control" name="ipaddress_catatan"></textarea>
-					</div>	
+					</div>						
 					<div class="form-group">
 						<button type="submit" name="submit" value="submit" class="btn btn-block btn-primary">Simpan</button>
 						<a href="<?= site_url($global->url)?>" class="btn btn-block btn-danger">Kembali</a>

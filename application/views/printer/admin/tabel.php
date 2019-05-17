@@ -1,7 +1,8 @@
 
 <div class="card hidden-xs">
 	<div class="card-header ">
-		<div class="card-title "><?= ucwords($global->headline)?>
+		<div class="card-title "><?= ucwords($global->headline)?><br>
+		<small>Pengantian Catridge Printer</small>
 		<div class="pull-right">
 			<button id="add"  type="button" class="btn btn-icon btn-round btn-primary"  url="<?= base_url($global->url.'add')?>" onclick="add()">
 				<i class="fa fa-plus"></i>
@@ -25,7 +26,7 @@
 							<td><?=$i?></td>
 							<td>
 								<b><a href="javascript:void()" onclick="detail(<?=$row->printer_id?>)" url="<?=base_url($global->url.'detail')?>" class="detail"><?= ucwords($row->printer_tipe)?></a></b><br>
-								<small>Tersimpan : <?= date('d-m-Y',strtotime($row->printer_tersimpan))?></small><br>
+								<small>Dikerjakan : <?= date('d-m-Y',strtotime($row->printer_tersimpan))?></small><br>
 								<i><?= ucwords($row->printer_lokasi)?></i>
 							</td>
 							<td class="text-center"> 

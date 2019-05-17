@@ -15,6 +15,10 @@
 						<input required type="text" name="printer_tipe" class="form-control" value="<?=$data->printer_tipe?>">
 					</div>
 					<div class="form-group">
+						<label>Tanggal Pengantian</label>
+						<input required readonly type="text" name="printer_tersimpan" class="datepicker form-control"  value="<?=$data->printer_tersimpan?>">
+					</div>						
+					<div class="form-group">
 						<label>Lokasi</label>
 						<textarea required rows="8" class="form-control" name="printer_lokasi"><?=$data->printer_lokasi?></textarea>
 					</div>					
