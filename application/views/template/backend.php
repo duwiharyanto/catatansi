@@ -102,7 +102,7 @@
 	
 	<!-- Atlantis JS -->
 	<script src="<?= base_url();?>vendor/js/atlantis.min.js"></script>
-
+	<script src="<?= base_url();?>vendor/js/plugin/signature/signature_pad.umd.js"></script>
 
 </head>
 <style type="text/css">
@@ -110,45 +110,62 @@
 		height: 10px;
 	}
 	.hide {
-	  display: none !important;
+		display: none !important;
 	}
 	@media (max-width: 767px) {
-	  .hidden-xs {
-	    display: none !important;
-	  }
+		.hidden-xs {
+			display: none !important;
+		}
 	}
 	@media (min-width: 768px) and (max-width: 991px) {
-	  .hidden-sm {
-	    display: none !important;
-	  }
+		.hidden-sm {
+			display: none !important;
+		}
 	}
 	@media (min-width: 992px) and (max-width: 1199px) {
-	  .hidden-md {
-	    display: none !important;
-	  }
+		.hidden-md {
+			display: none !important;
+		}
 	}
 	@media (min-width: 1200px) {
-	  .hidden-lg {
-	    display: none !important;
-	  }
+		.hidden-lg {
+			display: none !important;
+		}
 	}	
 	.pagination li {
-	  margin-top: 10px;
-	  display:inline-block;
-	  padding:4px;
+		margin-top: 10px;
+		display:inline-block;
+		padding:4px;
 	}
 	.pagination li a {
-	
-	float: left;
-	padding: 8px 16px;
-	text-decoration: none;
-	border: 0px solid #ddd;
-	background-color:#1572e8;
-	  
+
+		float: left;
+		padding: 8px 16px;
+		text-decoration: none;
+		border: 0px solid #ddd;
+		background-color:#1572e8;
+
 	}	
 	.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span, .pagination > li > a, .pagination > li > span{
 		color: white;
+	}
+	.wrappersignature {
+		position: relative;
+		width: 100%;
+		height: 200px;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.signature-pad {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width:400px;
+		height:200px;
 	}	
+
 </style>
 <body>
 	<div class="wrapper">
