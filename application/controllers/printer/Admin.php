@@ -14,6 +14,7 @@ class Admin extends Master {
 	private $default_view="printer/admin/";
 	private $view="template/backend";
 	private $id="printer_id";
+	private $path='./signature/printer/';
 
 	private function global_set($data){
 		$data=array(
@@ -44,7 +45,16 @@ class Admin extends Master {
 				'printer_tersimpan'=>date('Y-m-d',strtotime($this->input->post('printer_tersimpan'))),
 				'printer_lokasi'=>$this->input->post('printer_lokasi'),
 				'printer_catatan'=>$this->input->post('printer_catatan'),
+				'printer_penerima'=>$this->input->post('printer_penerima'),
 			);
+			$data_uri = $this->input->post('printer_ttd');
+			$encoded_image = explode(",", $data_uri)[1];
+			$decoded_image = base64_decode($encoded_image);
+			$ttd=$this->randomstring(20);
+			$file=$ttd.'.png';
+			file_put_contents($this->path.$file, $decoded_image);
+			$data['printer_ttd']=$file;	
+
 			$query=array(
 				'data'=>$data,
 				'tabel'=>$this->master_tabel,
@@ -141,10 +151,20 @@ class Admin extends Master {
 		$this->load->view($this->default_view.'detail',$data);		
 	}
 	public function hapus($id){
+		$getfile=array(
+			'tabel'=>$this->master_tabel,
+			'where'=>array(array($this->id=>$id)),
+		);		
+		$file=$this->Crud->read($getfile)->row();
+		$getttd=$file->printer_ttd;
+		if($getttd){
+			$ttd=$this->path.$file->printer_ttd;
+			unlink($ttd);
+		}
 		$query=array(
 			'tabel'=>$this->master_tabel,
 			'where'=>array($this->id=>$id),
-		);
+		);		
 		$delete=$this->Crud->delete($query);
 		$this->notifiaksi($delete);
 		redirect(site_url($this->default_url));

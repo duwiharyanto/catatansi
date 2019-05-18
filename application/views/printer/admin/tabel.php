@@ -59,7 +59,9 @@
 						<span class="name">
 						<span>
 							<b><a href="javascript:void()" onclick="detail(<?=$row->printer_id?>)" url="<?=base_url($global->url.'detail')?>" class="detail"><?= ucwords($row->printer_tipe)?></a></b><br>
-							<small>Tersimpan : <?= date('d-m-Y',strtotime($row->printer_tersimpan))?></small><br>
+							<small>Tersimpan : <?= date('d-m-Y',strtotime($row->printer_tersimpan))?><br>
+								<span class="badge badge-primary">Penerima : <?= $row->printer_penerima ? ucwords($row->printer_penerima):'-'?></span>
+							</small><br>
 							<i><?= ucwords($row->printer_lokasi)?></i>	
 						</span>
 						</span>

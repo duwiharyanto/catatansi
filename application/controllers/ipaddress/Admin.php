@@ -44,14 +44,7 @@ class Admin extends Master {
 				'ipaddress_tersimpan'=>date('Y-m-d'),
 				'ipaddress_ip'=>$this->input->post('ipaddress_ip'),
 				'ipaddress_catatan'=>$this->input->post('ipaddress_catatan'),
-			);
-			$data_uri = $data['ipaddress_ttd'];
-			$encoded_image = explode(",", $data_uri)[1];
-			$decoded_image = base64_decode($encoded_image);
-			$ip=str_replace('.', '', $data['ipaddress_ip']);
-			$file=$ip.'.png';
-			file_put_contents('./signature/'.$file, $decoded_image);
-			$data['ipaddress_ttd']=$file;		
+			);	
 			$query=array(
 				'data'=>$data,
 				'tabel'=>$this->master_tabel,

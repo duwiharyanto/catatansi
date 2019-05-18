@@ -24,6 +24,16 @@ class Master extends CI_Controller {
 		$norm='RM'.substr($tahun, 2).$padnourut;
 		return $norm;
 	}
+	protected function randomstring($n) { 
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+		$randomString = ''; 
+
+		for ($i = 0; $i < $n; $i++) { 
+			$index = rand(0, strlen($characters) - 1); 
+			$randomString .= $characters[$index]; 
+		} 
+		return $randomString; 
+	} 
 	protected function kodependaftaran($param){
 		//$nourut=$this->db->query("SELECT RIGHT(notest,4) AS kode from jual ORDER BY kode DESC LIMIT 1");
 		$nourut=$param['kode'];
