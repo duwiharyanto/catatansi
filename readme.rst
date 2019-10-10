@@ -1,5 +1,5 @@
 ###################
-What is CodeIgniter
+DESKRIPSI
 ###################
 
 Aplikasi Pencatatan Kegiatan
