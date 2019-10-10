@@ -7,6 +7,7 @@
 	<link rel="icon" href="http://themekita.com/demo-atlantis-bootstrap/livepreview/examples/assets/img/icon.ico" type="image/x-icon"/>
 
 	<!-- Fonts and icons -->
+
 	<script src="<?= base_url();?>vendor/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
@@ -32,13 +33,15 @@
 	<!-- jQuery UI -->
 	<script src="<?= base_url();?>vendor/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	<script src="<?= base_url();?>vendor/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<!-- Moment JS -->
+	<script src="<?= base_url();?>vendor/js/plugin/moment/moment.min.js"></script>	
 
 	<!-- jQuery Scrollbar -->
 	<script src="<?= base_url();?>vendor/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
-	<!-- Moment JS -->
-	<script src="<?= base_url();?>vendor/js/plugin/moment/moment.min.js"></script>
 
+	<!-- Atlantis JS -->
+	<script src="<?= base_url();?>vendor/js/atlantis.min.js"></script>
 	<!-- Chart JS -->
 	<script src="<?= base_url();?>vendor/js/plugin/chart.js/chart.min.js"></script>
 
@@ -55,8 +58,6 @@
 	<!-- Bootstrap Notify -->
 	<script src="<?= base_url();?>vendor/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
-	<!-- Bootstrap Toggle -->
-	<script src="<?= base_url();?>vendor/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
 
 	<!-- jQuery Vector Maps -->
 	<script src="<?= base_url();?>vendor/js/plugin/jqvmap/jquery.vmap.min.js"></script>
@@ -100,8 +101,7 @@
 	<!-- List.js -->
 	<script src="<?= base_url();?>vendor/js/plugin/list.js/list.min.js"></script>
 	
-	<!-- Atlantis JS -->
-	<script src="<?= base_url();?>vendor/js/atlantis.min.js"></script>
+
 	<script src="<?= base_url();?>vendor/js/plugin/signature/signature_pad.umd.js"></script>
 
 </head>
@@ -381,7 +381,12 @@
 										<a href="<?= site_url('printer/admin')?>">
 											<span class="sub-item">Printer</span>
 										</a>
-									</li>																		
+									</li>
+									<li>
+										<a href="<?= site_url('cekpc/admin')?>">
+											<span class="sub-item">Cek PC</span>
+										</a>
+									</li>			
 								</ul>
 							</div>
 						</li>						
@@ -917,11 +922,7 @@
 		</div>
 		<!-- End Custom template -->
 	</div>
-	<!-- Atlantis DEMO methods, don't include it in your project! -->
-	<script src="<?= base_url();?>vendor/js/setting-demo.js"></script>
-	<!--
-	<script src="<?= base_url();?>vendor/js/demo.js"></script>	
-	-->
 	
+	<script src="<?= base_url();?>vendor/js/setting-demo2.js"></script>
 </body>
 </html>
