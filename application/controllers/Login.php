@@ -87,5 +87,18 @@ class Login extends Master {
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url('Login'));
-	}		
+	}	
+
+
+	/////////////////////////////////////////////////	
+	public function codeblue(){
+		$global=[
+			'headline'=>'tim code blue',
+			'url'=>'login',
+		];
+		$data=[
+			'conf'=>(object)$global,
+		];
+		$this->load->view('template/codeblue',$data);
+	}
 }
